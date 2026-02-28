@@ -1,0 +1,13 @@
+We prove: for every natural number n, if 2 ≤ n and if every natural number d that divides n and satisfies 1 < d also satisfies 2 ∣ d, then there exists a natural number k such that n = 2^k.
+
+Fix an arbitrary natural number n. Assume 2 ≤ n, and assume:
+for every natural number d, if d ∣ n and 1 < d, then 2 ∣ d.
+
+Apply the theorem Nat.eq_two_pow_or_exists_odd_prime_and_dvd to n. There are two cases.
+
+Case 1: There exists k with n = 2^k. Then the required conclusion holds immediately.
+
+Case 2: There exists a natural number p such that p is prime, p ∣ n, and p is odd.
+From primality of p, we have 1 < p. Using the divisor hypothesis with d := p, together with p ∣ n and 1 < p, we get 2 ∣ p. Hence p is even (by even_iff_two_dvd). But p is also odd, so p is not even (by Nat.not_even_iff_odd). This is a contradiction.
+
+Therefore Case 2 is impossible, so Case 1 must hold. Hence there exists a natural number k such that n = 2^k.
