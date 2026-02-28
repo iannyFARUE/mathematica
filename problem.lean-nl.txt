@@ -1,0 +1,1 @@
+For every natural number n, if 2 ≤ n, then if for every natural number d, if d divides n, then if 1 < d, 2 divides d, then there exists a natural number k such that n = 2^k.
