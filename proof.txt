@@ -1,0 +1,78 @@
+### Prior Work
+
+This is a standard elementary number theory lemma (often used as an exercise when introducing prime factorization/Euclid’s lemma). The “best known result” is actually the full theorem: **an integer (n\ge 2) has no odd divisor (>1) iff (n) is a power of (2)**. It’s immediate from the Fundamental Theorem of Arithmetic (FTA) (Gauss) or, even more elementarily, from repeated division by 2 and the fact that an odd number (>1) divides itself. There’s no known “barrier” here because it is not open; the usual “barrier” would only arise if one tried to avoid using any factorization/Euclid-type fact, but even then a simple parity/division argument works.
+
+### Approach
+
+I’ll give two proofs:
+
+1. A proof via the **Fundamental Theorem of Arithmetic** (prime factorization) and the property that a prime divisor is a divisor.
+2. A proof via **maximal power of 2 dividing (n)** (2-adic valuation / repeated halving), avoiding explicit use of unique factorization.
+
+### Solution / Analysis
+
+#### Proof A (via prime factorization / FTA)
+
+**Step 1.** Assume (n\ge 2) and “every divisor of (n) greater than 1 is even.”
+
+**Step 2.** Invoke the **Fundamental Theorem of Arithmetic (Gauss)**: every integer (n\ge 2) can be written as a product of primes
+[
+n = p_1 p_2 \cdots p_k,
+]
+with each (p_i) prime.
+(Hypothesis check: (n\ge 2), so FTA applies.)
+
+**Step 3.** Each prime factor (p_i) is a divisor of (n).
+Justification: If (n = p_i \cdot (p_1\cdots \widehat{p_i}\cdots p_k)), then (p_i\mid n) by the definition of divisibility.
+
+**Step 4.** By the given condition, every divisor (>1) is even, so in particular every prime divisor (p_i) is even.
+
+**Step 5.** The only even prime is (2).
+Justification: If (p) is even and prime, then (2\mid p). Since (p) is prime, its only positive divisors are (1) and (p), so the divisor (2) forces (p=2).
+
+**Step 6.** Therefore all prime factors are (2), so
+[
+n = 2^k
+]
+for some (k\ge 1). Hence (n) is a power of 2. ∎
+
+---
+
+#### Proof B (via repeated division by 2; avoids explicit uniqueness)
+
+**Step 1.** Assume (n\ge 2) and every divisor of (n) greater than 1 is even.
+
+**Step 2.** Let (2^a) be the **largest power of 2 dividing (n)**. Concretely, choose (a\ge 0) maximal such that (2^a\mid n). Then we can write
+[
+n = 2^a m
+]
+with (m) an integer and (m) **odd** (because if (m) were even, then (2^{a+1}\mid n), contradicting maximality).
+(Existence of such maximal (a): repeatedly divide (n) by 2 while it’s even; since (n) is finite, this process terminates.)
+
+**Step 3.** If (m>1), then (m) is an odd divisor of (n) greater than 1 (since (n=2^a m)). This contradicts the hypothesis that every divisor (>1) is even.
+
+**Step 4.** Therefore (m=1). Hence (n = 2^a), a power of 2. ∎
+
+### Verification
+
+* **Boundary cases:**
+
+  * (n=2): divisors (>1) are just (2) (even) → conclusion (2=2^1) holds.
+  * (n=3): divisor (3) is odd → hypothesis fails, so no issue.
+  * (n=1) excluded by (n\ge 2).
+* **Key Step checks:**
+
+  * Proof A Step 2 (FTA): applicable because (n\ge 2).
+  * Proof A Step 3: prime factor divides the product—checked via definition of divisibility.
+  * Proof A Step 5: “only even prime is 2” uses the definition of prime and divisibility; fully valid.
+  * Proof B Step 2: maximal power of 2 dividing (n) exists via finite repeated halving; oddness of (m) follows from maximality—standard and correct.
+  * Proof B Step 3: if (m>1), then (m) is a divisor (>1) and odd—contradiction is direct.
+* **No hidden equivalences/quantifier errors:** We used “every divisor (>1)” → applies to any particular divisor (prime factor or (m)).
+* **No theorem used without hypotheses:** All checked above.
+* **No contradiction with known constructions:** Powers of 2 indeed have all divisors (>1) even; conversely any non-power-of-2 has an odd divisor (>1). Consistent.
+
+### Result
+
+**Status**: **Solved**
+**What is proved**: If every divisor of (n\ge 2) greater than 1 is even, then (n) must be of the form (2^k) for some integer (k\ge 1).
+**Open sub-problems**: None.

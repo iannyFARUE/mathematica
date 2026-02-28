@@ -1,0 +1,10 @@
+name = "mathematica"
+version = "0.1.0"
+defaultTargets = ["mathematica"]
+
+[[lean_lib]]
+name = "Mathematica"
+
+[[lean_exe]]
+name = "mathematica"
+root = "Main"

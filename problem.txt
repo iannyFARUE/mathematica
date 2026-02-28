@@ -1,0 +1,3 @@
+Problem:
+
+Let n ≥ 2 be a natural number. Prove that if every divisor of n greater than 1 is even, then n is a power of 2.
